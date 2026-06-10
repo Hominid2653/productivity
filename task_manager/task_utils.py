@@ -5,17 +5,9 @@ tasks = []
 def add_task(title, description, due_date):
     from .validation import validate_task_title, validate_task_description, validate_due_date
 
-    valid, message = validate_task_title(title)
-    if not valid:
-        raise ValueError(message)
-
-    valid, message = validate_task_description(description)
-    if not valid:
-        raise ValueError(message)
-
-    valid, message = validate_due_date(due_date)
-    if not valid:
-        raise ValueError(message)
+    validate_task_title(title)
+    validate_task_description(description)
+    validate_due_date(due_date)
 
     task = {
         "title": title.strip(),
